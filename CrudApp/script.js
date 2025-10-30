@@ -10,3 +10,12 @@ li.addEventListener('click',(event)=>{
    document.querySelector("#"+blocId).style.display="block";
 });
 })
+
+document.querySelector('#home').addEventListener('click',()=>{
+    document.querySelector('#bloc').style.display="block";
+    document.querySelectorAll('.villeBloc').forEach((bloc)=>{
+        bloc.style.display="none";
+    }
+);
+   document.querySelector("#location").textContent="LE MAROC";
+});
