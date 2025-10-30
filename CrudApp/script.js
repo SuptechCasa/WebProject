@@ -1,3 +1,31 @@
+import villes from "./data.js";
+
+const listeVilles=document.querySelector('#villes');
+const villesContainer=document.querySelector('#villesContainer');
+
+villes.forEach((ville)=>{
+ //Préparer le menu des villes
+    const city=document.createElement("li")
+    city.innerText=ville.name
+    listeVilles.appendChild(city);
+
+//Préparer les blocs des villes
+    const villeBloc=document.createElement("div");
+    villeBloc.classList.add("villeBloc");
+    villeBloc.id=ville.name.toLowerCase();
+    villeBloc.style.display="none";
+    const imgVille=document.createElement("img");
+    imgVille.src=ville.photo;
+    imgVille.classList.add("ville");
+    const descVille=document.createElement("p");
+    descVille.classList.add("descriptionVille");
+    descVille.innerText=ville.description;
+    villeBloc.appendChild(descVille);
+    villeBloc.appendChild(imgVille);
+    
+    villesContainer.appendChild(villeBloc);
+});
+
 const items=document.querySelectorAll('li');
 items.forEach((li)=>{
 li.addEventListener('click',(event)=>{

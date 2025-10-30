@@ -5,3 +5,5 @@ const villes=[
     {name:"Agadir",description:"Agadir, ville située sur la côte atlantique sud du Maroc dans les contreforts de l'Anti-Atlas, est la capitale de la province d'Agadir Ida-Outanane. Cette station balnéaire est réputée pour ses parcours de golf, sa large plage en croissant et sa promenade en front de mer bordée de cafés, de restaurants et de bars. Perchée sur une colline, la kasbah d'Agadir a été détruite lors d'un tremblement de terre en 1960, mais ses murs d'origine sont toujours debout.",photo:"https://www.grooupee.fr/client/cache/produit/555_312____2__fotolia_200628827_m_5571.jpg"},
 
 ]
+
+export default villes;
