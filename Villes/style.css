@@ -1,0 +1,63 @@
+.paragraphe1 {
+    border: 3px double blue;
+    background:linear-gradient(to bottom,rgb(196, 252, 192),rgb(255, 171, 171),rgb(196, 252, 192));
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 200px;
+    margin-right: 2px;
+    margin-right: 200px;
+    padding: 5px;
+    text-align: justify;
+    display: flex;
+    border-radius: 10px;
+}
+
+#drapeau{
+    width: 130px;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px grey;
+    padding: 5px;
+}
+#bloc{
+    display: flex;
+}
+.menu{
+    list-style-type: none;
+    display: inline;
+    vertical-align:middle;
+    padding-left: 0px;
+}
+.menu>li{
+    display: inline-block;
+    margin-right: 2px;
+    font-weight: bold;
+    font-family: 'Times new roman', sans-serif;
+    border: 1px solid black;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.menu>li:hover{
+    background-color: rgb(255, 255, 255);
+    color: black;
+    box-shadow: 2px 2px 10px grey;
+}
+.ville{
+    width: 300px;
+}
+.villeBloc{
+    text-align: center;
+}
+#home{
+    width:30px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.descriptionVille{
+    text-align: justify;
+}
