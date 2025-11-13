@@ -12,10 +12,24 @@
             <h2 class="table-title">Liste des produits</h2>
             <button class="btn"><span class="plus">+ </span>Ajouter un Produit</button>
         </div>
-        <div class="table-container">
+        <div class="none-container">
             <img id="imageBoite" src="images/boite.png" alt="">
             <p class="large">Aucun produit pour le moment</p>
             <p class="small">Cliquez sur "Ajouter un Produit" pour commencer</p>
+        </div>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
         </div>
     </div>
     <div id="overlay"></div>
