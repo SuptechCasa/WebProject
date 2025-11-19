@@ -5,6 +5,8 @@ const overlay = document.querySelector("#overlay");
 const btnAjouter=document.querySelector(".btn-ajouter");
 const productForm=document.querySelector("#product-form");
 const tableBody=document.querySelector("#table-body");
+const noneContainer=document.querySelector(".none-container");
+const confirmModal=document.querySelector("#confirmModal");
 
 openModalButton.addEventListener("click", () => {
   modal.style.display = "block";
@@ -25,6 +27,7 @@ btnAjouter.addEventListener("click", (e) => {
    toTable(productData);
    productForm.reset();
    closeModal();
+   noneContainer.style.display="none";
 });
 
 const toTable=(product)=>{
@@ -42,6 +45,7 @@ const toTable=(product)=>{
   
   const deleteButton=row.querySelector(".delete");
   deleteButton.addEventListener("click", () => {
-    row.remove();
+  confirmModal.style.display="block";
+    //row.remove();
   });
 }
