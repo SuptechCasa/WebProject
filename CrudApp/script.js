@@ -27,6 +27,7 @@ btnAjouter.addEventListener("click", (e) => {
    e.preventDefault();
    const formData=new FormData(productForm);
    const productData=Object.fromEntries(formData.entries());
+   console.log(productData.image.name);
    toTable(productData);
    productForm.reset();
    closeModal();
@@ -39,6 +40,7 @@ const toTable=(product)=>{
     <td>${product.id}</td>
     <td class="td-nom">${product.nom}</td>
     <td>${product.prix}</td>
+    <td>${product.image.name}</td>
     <td>
       <button class="table_btn edit">Edit</button>
       <button class="table_btn delete">Delete</button>
