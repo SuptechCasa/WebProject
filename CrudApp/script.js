@@ -51,9 +51,13 @@ const toTable=(product)=>{
   confirmModal.style.display="block";
   ligne=row;
   });
+
+  localStorage.setItem(product.id, JSON.stringify(product));
+  //sessionStorage.setItem(product.id, JSON.stringify(product));
 }
 ouiBtn.addEventListener("click", () => {
   ligne.remove();
+  localStorage.removeItem(ligne.children[0].textContent);
   confirmModal.style.display="none";
   if (tableBody.children.length===0){
     noneContainer.style.display="block";
@@ -61,4 +65,18 @@ ouiBtn.addEventListener("click", () => {
 });
 nonBtn.addEventListener("click", () => {
   confirmModal.style.display="none";
+});!
+
+// Load products from localStorage on page load
+window.addEventListener("load", () => {
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const product = JSON.parse(localStorage.getItem(key));
+    toTable(product);
+  }
+    if (tableBody.children.length===0){
+    noneContainer.style.display="block";
+  }else{
+    noneContainer.style.display="none";
+  }
 });
