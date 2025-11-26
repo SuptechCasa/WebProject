@@ -187,3 +187,21 @@
     cursor: pointer;
     float: right;
 }
+
+#product-form img{
+    max-width: 50px;
+    max-height: 50px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 5px;
+}
+#product-form div{
+    display: flex;
+    align-items: center;
+    
+}
+#product-form div span{
+    margin-right: 10px;
+    align-self: center;
+}

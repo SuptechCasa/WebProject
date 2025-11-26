@@ -9,6 +9,10 @@ const noneContainer=document.querySelector(".none-container");
 const confirmModal=document.querySelector("#confirmModal");
 const ouiBtn=document.querySelector(".ouiBtn");
 const nonBtn=document.querySelector(".nonBtn");
+
+const imageInput = document.getElementById('image');
+const previewImage = document.getElementById('preview');
+
 let ligne=null;
 
 openModalButton.addEventListener("click", () => {
@@ -82,3 +86,18 @@ window.addEventListener("load", () => {
     noneContainer.style.display="none";
   }
 });
+
+imageInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (file) {
+
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = function(e) {
+            previewImage.src = e.target.result;
+            previewImage.style.display = 'block';
+        };
+}  
+}      
+);
