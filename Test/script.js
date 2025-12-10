@@ -1,19 +1,10 @@
-const imageInput = document.getElementById('image');
-const previewImage = document.getElementById('preview');
+const axios = require("axios");
+const fs = require("fs");
+const FormData = require("form-data");
 
-imageInput.addEventListener('change', function() {
-    const file = this.files[0];
-    if (file) {
+const form = new FormData();
+form.append("file", fs.createReadStream("./picture.jpg"));
 
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-
-        reader.onload = function(e) {
-            previewImage.src = e.target.result;
-            previewImage.style.display = 'block';
-        };
-        
-
-}  
-}      
-);
+axios.post("http://localhost:3000/upload", form)
+.then(res => console.log(res.data))
+.catch(err => console.log(err));
