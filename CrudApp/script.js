@@ -87,6 +87,7 @@ window.addEventListener("load", () => {
   }
 });
 
+// Sélection de l'image
 imageInput.addEventListener('change', function() {
     const file = this.files[0];
     if (file) {
@@ -96,6 +97,7 @@ imageInput.addEventListener('change', function() {
 
         reader.onload = function(e) {
             previewImage.src = e.target.result;
+            console.log('Image loaded:', e.target.result);
             previewImage.style.display = 'block';
         };
 }  
