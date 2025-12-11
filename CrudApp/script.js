@@ -1,3 +1,4 @@
+
 const openModalButton = document.querySelector(".btn");
 const modal = document.querySelector("#modal");
 const closeModalButton = document.querySelector("#close-modal");
@@ -45,7 +46,7 @@ const toTable=(product)=>{
     <td>${product.id}</td>
     <td class="td-nom">${product.nom}</td>
     <td>${product.prix}</td>
-    <td>${product.image.name}</td>
+    <td>${product.image}</td>
     <td>
       <button class="table_btn edit">Edit</button>
       <button class="table_btn delete">Delete</button>
@@ -76,7 +77,20 @@ nonBtn.addEventListener("click", () => {
 
 // Load products from localStorage on page load
 window.addEventListener("load", () => {
-  for (let i = 0; i < localStorage.length; i++) {
+  //readFromLocalStorage();
+  axios.get('http://localhost:3000/produits')
+    .then(response => {
+      const products = response.data;
+      
+      products.forEach(product => {
+        console.log(product);
+       toTable(product);
+      });
+    })
+});
+
+const readFromLocalStorage = () => {
+for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
     const product = JSON.parse(localStorage.getItem(key));
     toTable(product);
@@ -86,8 +100,7 @@ window.addEventListener("load", () => {
   }else{
     noneContainer.style.display="none";
   }
-});
-
+}
 // Sélection de l'image
 imageInput.addEventListener('change', function() {
     const file = this.files[0];
