@@ -46,7 +46,7 @@ const toTable=(product)=>{
     <td>${product.id}</td>
     <td class="td-nom">${product.nom}</td>
     <td>${product.prix}</td>
-    <td>${product.image}</td>
+    <td><img class=photo src="http://localhost:3000/uploads/${product.image}"></td>
     <td>
       <button class="table_btn edit">Edit</button>
       <button class="table_btn delete">Delete</button>

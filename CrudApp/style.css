@@ -205,3 +205,9 @@
     margin-right: 10px;
     align-self: center;
 }
+
+.photo{
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 5px;
+}

@@ -5,10 +5,8 @@ const path = require("path");
 const cors = require('cors');
 app.use(cors());
 app.use(express.json())
-const listProduits = [
-    { id: 1, nom: 'PC', prix: 6000, image: null },
-    { id: 2, nom: 'Casque', prix: 300, image: null },
-]
+app.use('/uploads', express.static('uploads'));
+const listProduits = []
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
