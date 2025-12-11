@@ -31,7 +31,8 @@ btnAjouter.addEventListener("click", (e) => {
    e.preventDefault();
    const formData=new FormData(productForm);
    const productData=Object.fromEntries(formData.entries());
-   console.log(productData.image.name);
+   console.log(productData);
+   toBackEnd(productData);
    toTable(productData);
    productForm.reset();
    closeModal();
@@ -103,3 +104,18 @@ imageInput.addEventListener('change', function() {
 }  
 }      
 );
+
+const toBackEnd = async (product) => {
+  const produit = new FormData();
+  produit.append('id', product.id);
+  produit.append('nom', product.nom);
+  produit.append('prix', product.prix);
+  produit.append('image', product.image);
+    try {
+      
+        const response = await axios.post('http://localhost:3000/produits', produit); 
+        console.log('Product added to backend:', response.data);
+    } catch (error) {
+        console.error('Error adding product to backend:', error);
+    }
+}
