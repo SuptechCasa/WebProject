@@ -3,10 +3,16 @@ const app = express()
 const multer  = require("multer");
 const path = require("path");
 const cors = require('cors');
+const Product=require('./models/Product');
+const mongoose = require('mongoose');
 app.use(cors());
 app.use(express.json())
 app.use('/uploads', express.static('uploads'));
 const listProduits = []
+
+mongoose.connect('mongodb://admin:1234@localhost:27017/Clientdb?authSource=admin')
+  .then(() => console.log('MongoDB connecté'))
+  .catch(err => console.error('Erreur MongoDB:', err));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -24,7 +30,12 @@ app.get('/', (req, res) => {
 //Endpoint to get items
 app.get('/produits', (req, res) => {
     // Logic to get items
-    res.json(listProduits)
+    Product.find().then((products)=>{
+        res.json(products)
+    }).catch((err)=>{
+        console.error('Error retrieving products from database:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
+    });
 })
 
 //Endpoint to add an item
@@ -35,6 +46,12 @@ app.post('/produits', upload.single("image"),(req, res) => {
         prix: parseFloat(req.body.prix),
         image: req.file ? req.file.filename : null
     }
+    const product=new Product(produit);
+    product.save().then(()=>{
+        console.log('Produit saved to database');
+    }).catch((err)=>{
+        console.error('Error saving produit to database:', err);
+    });
     listProduits.push(produit)
     console.log(listProduits);
     res.status(201).json(produit)
@@ -49,6 +66,12 @@ app.delete('/produits/:id', (req, res) => {
     } else {
         res.status(404).json({ message: 'Produit not found' })
     }
+ 
+    Product.deleteOne({id:produitId}).then(()=>{
+        console.log('Produit deleted from database');
+    }).catch((err)=>{
+        console.error('Error deleting produit from database:', err);
+    }   );
 })
 
 

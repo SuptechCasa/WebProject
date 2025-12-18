@@ -1,4 +1,3 @@
-
 const openModalButton = document.querySelector(".btn");
 const modal = document.querySelector("#modal");
 const closeModalButton = document.querySelector("#close-modal");
@@ -66,6 +65,15 @@ const toTable=(product)=>{
 ouiBtn.addEventListener("click", () => {
   ligne.remove();
   localStorage.removeItem(ligne.children[0].textContent);
+
+  axios.delete("http://localhost:3000/produits/"+ligne.children[0].textContent)
+    .then(() => {
+      console.log('Product deleted from backend');
+    })
+    .catch((error) => {
+      console.error('Error deleting product from backend:', error);
+    });
+
   confirmModal.style.display="none";
   if (tableBody.children.length===0){
     noneContainer.style.display="block";
