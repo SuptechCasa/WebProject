@@ -1,0 +1,24 @@
+.joueur {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #b9d7f8;
+    width: 300px;
+    text-align: center;
+    }
+.joueur h2 {
+    color: #820101;
+    }
+.joueur p {
+    font-size: 14px;
+    border: 1px solid #2037ac;
+    padding: 5px;
+    background-color: #f9ffe3;
+    border-radius: 5px;
+    }   
+.joueur img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    }
